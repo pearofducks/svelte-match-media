@@ -14,8 +14,9 @@ const defaultQueries = {
 }
 
 let queryStores
+export let media
 
-export const install (queries = defaultQueries) => {
-  queryStores = Object.entries(mqs).reduce((acc, [mediaName, queryString]) => (acc[mediaName] = readable(false, setupMQ(queryString)), acc), {})
-  return derived(Object.values(queryStores), ($queryStores) => $queryStores.reduce((acc, q, i) => (acc[Object.keys(queryStores)[i]] = q, acc), {}))
+export const setupMediaQueries = (queries = defaultQueries) => {
+  queryStores = Object.entries(queries).reduce((acc, [mediaName, queryString]) => (acc[mediaName] = readable(false, setupMq(queryString)), acc), {})
+  media = derived(Object.values(queryStores), ($queryStores) => $queryStores.reduce((acc, q, i) => (acc[Object.keys(queryStores)[i]] = q, acc), {}))
 }
