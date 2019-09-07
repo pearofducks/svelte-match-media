@@ -34,7 +34,7 @@ Then use your media queries in your svelte components
 import { media } from 'svelte-match-media'
 </script>
 
-<main class:foo={$media.desktop}>
+<main class:foo={$media.mobile}>
   {#if $media.desktop}
     <nav />
   {/if}
