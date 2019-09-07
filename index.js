@@ -16,7 +16,7 @@ const defaultQueries = {
 let queryStores
 export let media
 
-export const setupMediaQueries = (queries = defaultQueries) => {
+export const setup = (queries = defaultQueries) => {
   queryStores = Object.entries(queries).reduce((acc, [mediaName, queryString]) => (acc[mediaName] = readable(false, setupMq(queryString)), acc), {})
   media = derived(Object.values(queryStores), ($queryStores) => $queryStores.reduce((acc, q, i) => (acc[Object.keys(queryStores)[i]] = q, acc), {}))
 }
