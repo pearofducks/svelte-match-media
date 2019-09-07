@@ -4,7 +4,10 @@
   "description": "a match-media plugin for svelte",
   "module": "dist/index.esm.js",
   "main": "dist/index.js",
-  "scripts": {},
+  "scripts": {
+    "version": "rollup -c",
+    "postversion": "npm publish && git push --follow-tags"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pearofducks/svelte-match-media.git"
