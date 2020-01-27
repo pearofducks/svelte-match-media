@@ -5,7 +5,7 @@ const setupMq = (queryString) => (set) => {
   const callback = (e) => set(e.matches)
   query.addListener(callback)
   callback(query)
-  return (query) => query.removeListener(callback)
+  return () => query.removeListener(callback)
 }
 
 const defaultQueries = {
