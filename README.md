@@ -20,8 +20,8 @@ First, in your `main.js`, set up your media queries
 import { setup } from 'svelte-match-media'
 
 setup({
-  desktop: 'screen and (min-width: 769px)',
-  mobile: 'screen and (max-width: 768px)'
+  desktop: 'screen and (min-width: 768px)',
+  mobile: 'screen and (max-width: 767px)'
 })
 
 // or if those are the exact media queries you want, just call setup()
