@@ -4,6 +4,7 @@
   "description": "a match-media plugin for svelte",
   "module": "dist/index.esm.js",
   "main": "dist/index.js",
+  "types": "index.d.ts",
   "scripts": {
     "version": "rollup -c",
     "postversion": "npm publish && git push --follow-tags"
