@@ -13,10 +13,11 @@ const defaultQueries = {
   mobile: 'screen and (max-width: 768px)'
 }
 
-let queryStores
-export let media
-
-export const setup = (queries = defaultQueries) => {
-  queryStores = Object.entries(queries).reduce((acc, [mediaName, queryString]) => (acc[mediaName] = readable(false, setupMq(queryString)), acc), {})
-  media = derived(Object.values(queryStores), ($queryStores) => $queryStores.reduce((acc, q, i) => (acc[Object.keys(queryStores)[i]] = q, acc), {}))
+const makeMediaStoreInstance = (queries) => {
+  const qs = Object.entries(queries).reduce((acc, [mediaName, queryString]) => (acc[mediaName] = readable(false, setupMq(queryString)), acc), {})
+  return derived(Object.values(qs), ($queryStores) => $queryStores.reduce((acc, q, i) => (acc[Object.keys(qs)[i]] = q, acc), {}))
 }
+
+export let media
+export const setup = (queries = defaultQueries) => { media = makeMediaStoreInstance(queries) }
+export const createMedia = (queries = defaultQueries) => ({ media: makeMediaStoreInstance(queries) })

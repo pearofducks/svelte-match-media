@@ -40,3 +40,21 @@ import { media } from 'svelte-match-media'
   {/if}
 </main>
 ```
+
+## api
+
+#### queries (argument)
+
+All `queries` specified below should be an object of the form `{ mediaName: mediaQuery }`
+
+#### `setup(queries)`
+
+This sets up a Svelte store on the `media` export with `queries` mapped to their `window.matchMedia` result
+
+#### `media`
+
+The store initialized by `setup` above
+
+#### `createMedia(queries)`
+
+If you'd like to compartmentalize your media queries, or for whatever reason create multiple stores, this will create a standalone `media` object

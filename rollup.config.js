@@ -1,5 +1,5 @@
-import commonjs from 'rollup-plugin-commonjs'
-import buble from 'rollup-plugin-buble'
+import commonjs from '@rollup/plugin-commonjs'
+import buble from '@rollup/plugin-buble'
 import pkg from './package.json'
 
 const outputES = { file: pkg.module, format: 'es' }
