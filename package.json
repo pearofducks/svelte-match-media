@@ -25,7 +25,7 @@
   "homepage": "https://github.com/pearofducks/svelte-match-media#readme",
   "devDependencies": {
     "@rollup/plugin-buble": "^0.21.3",
-    "@rollup/plugin-commonjs": "^15.1.0",
-    "rollup": "^2.28.2"
+    "@rollup/plugin-commonjs": "^18.0.0",
+    "rollup": "^2.44.0"
   }
 }

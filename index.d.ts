@@ -1,7 +1,11 @@
 declare module 'svelte-match-media' {
   import { Readable } from 'svelte/store';
 
-  export let media: Readable<{ [name: string]: boolean }>;
-  export function setup(queries: { [name: string]: string }): () => void;
-  export function createMedia(queries: { [name: string]: string }): () => { media: Readable<{ [name: string]: boolean }> };
+  type queriesArg = { [name: string]: string }
+  type mediaObject = Readable<{ [name: string]: boolean }>
+  type mediaStore = { media: mediaObject }
+
+  export let media: mediaObject;
+  export function setup(queries: queriesArg): void;
+  export function createMedia(queries: queriesArg): mediaStore;
 }
